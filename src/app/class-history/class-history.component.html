@@ -1,0 +1,89 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper">
+       <div class="row">
+        <div class="col-md-12 grid-margin">
+          <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0 ">
+              <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> Available History</h3>
+              <h6 class="font-weight-normal mb-0"> We Have <strong class="text-primary badge badge-warning">{{DataLength}}</strong> Track Records of Session You have Attended </h6>
+            </div>
+            <div class="col-12 col-xl-4">
+             <div class="justify-content-end d-flex">
+              <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                <button class="btn btn-md btn-primary" routerLink="/dashboard"> 
+                    <i class="fa fa-home"></i> Dashboard
+                 </button>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">    
+      <div class="row" style="width: 110%; margin-top:20px;">
+        <div class="col-md-12 ">
+          <div class="card ">
+            <div class="card-body">
+              <p class="card-title "> 
+                <i class="fa fa-history fa-1x"></i> My Class Schedule History!
+              </p>
+              <!-- <p>
+                <Label>Filter By Course Catgory</Label> &nbsp;
+                <select name="" id="" class="form-control" [(ngModel)]="selectedOption" (change)="onDropdownChange()">
+                  <option value="">Choose</option>
+                  <option value="{{itms.CourseCategory}}" *ngFor="let itms of allCategory">{{itms.CourseCategory | titlecase}}</option>
+                </select>
+              </p> -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="table-responsive">
+                    <table id="example" class="display expandable-table" style="width:100%">
+                      <thead>
+                        <tr>
+                          <!-- <th>keys#</th> -->
+                          <th>Course Title</th>
+                          <th>Category</th>
+                          <th>Time</th>                          
+                          <th>JoinTime</th>
+                          <th>EndTime</th>
+                          <!-- <th>Notes</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let itm of getDashboard ">
+                          <td>{{itm.CourseTitle}}</td>
+                          <td>{{itm.CourseCategory}}</td>
+                          <td>{{ ('1970-01-01T' + itm.SetTime) | date:'hh:mm a' }}</td>
+                          <td>{{ itm.JoinTime | date }}</td>
+                          <td>{{ itm.EndTime }}</td>
+                          <!-- <td>{{ itm.Notes }}</td>                           -->
+                        </tr>
+                      </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+<app-footer></app-footer>
+
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->

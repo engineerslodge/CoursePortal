@@ -1,0 +1,36 @@
+.overlay-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure the spinner is on top of other elements */
+  }
+
+  .overlay-spinner2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 11, 11, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    color:white;
+  }
+  
+  .spinner-border {
+    margin-bottom: 10px; /* Add margin to separate spinner and text */
+  }
+  
+  .text-report {
+    font-weight: bold;
+  }
+ 

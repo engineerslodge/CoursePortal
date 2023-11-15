@@ -1,0 +1,36 @@
+<div class="body">
+    <div class="container">
+        <div class="row" *ngIf="success" >
+           <div class="col-md-6 mx-auto mt-5" style="margin-top: 50px !important;">
+              <div class="payment">
+                 <div class="payment_header bg-success">
+                    <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
+                 </div>
+                 <div class="content">
+                    <h1>Payment Success !</h1>
+                    <p>Thank you For your Payment On Metamax, We appreciate your Patronage </p>
+                    <hr>
+                    <a href="#" class="bg-success"  routerLink="/dashboard"> <i class="fa fa-home"></i> Go to Home</a>
+                 </div>
+                 
+              </div>
+           </div>
+        </div>
+        <div class="row" *ngIf="Failed" >
+            <div class="col-md-6 mx-auto mt-5" style="margin-top: 50px !important;">
+               <div class="payment">
+                  <div class="payment_header bg-danger">
+                     <div class="check"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="content">
+                     <h1>Payment Failed !</h1>
+                     <p>We could not authenticate this Payment, Please try again or with Different Cards. </p>
+                   <hr>
+                     <a href="#" class="bg-danger" routerLink="/dashboard"> <i class="fa fa-home"></i> Go to Home</a>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+     </div>
+ </div>        

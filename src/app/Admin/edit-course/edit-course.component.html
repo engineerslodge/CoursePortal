@@ -1,0 +1,113 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav></app-nav>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar-admin></app-sidebar-admin>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper" >
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold"><i class=" fa fa-bullseye"></i> Course Category Portal</h3>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly!</h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-md btn-primary" routerLink="/adminHome"> 
+                        <i class="fa fa-home"></i> Dashboard
+                     </button>
+                  </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="card">            
+               <div class="card-body">
+                <div class="row d-flex justify-content-center" style="padding:10px">
+                    <div class="col-md-12 text-center">
+                        <h4>Project Title</h4>
+                    </div>
+                    <p>Description</p>
+                   
+                </div>
+                <hr>
+                <div class="row" style="padding:20px;">
+                    <div class="col-md-8">
+                        <!-- <video width="560" height="340" controls>
+                            <source src="https://www.youtube.com/watch?v=krTKWUCba44&list=RDkrTKWUCba44&start_radio=1" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video> -->
+                          <!-- video-player.component.html -->
+
+                            <iframe width="560" height="340" src="https://www.youtube.com/watch?v=krTKWUCba44&list=RDkrTKWUCba44&start_radio=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <hr>
+                        <div class="row">
+                            <div class="template-demo mt-2">
+                                <button class="btn btn-outline-primary btn-icon-text">
+                                  <i class="ti-apple btn-icon-prepend"></i>
+                                  <span class="d-inline-block text-left">
+                                    <small class="font-weight-light d-block">Available on the</small>
+                                    App Store
+                                  </span>
+                                </button>
+                                <button class="btn btn-outline-danger btn-icon-text">
+                                  <i class="ti-android btn-icon-prepend"></i>
+                                  <span class="d-inline-block text-left">
+                                    <small class="font-weight-light d-block">Get it on the</small>
+                                    Google Play
+                                  </span>
+                                </button>
+                              </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div *ngIf="showCamera">
+                           <div style="margin-bottom: 10px;">
+                            <button class="btn btn-primary" type="button" disabled>
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                <span class="visually-hidden"></span>
+                              </button> &nbsp;
+                              <button class="btn btn-warning" type="button" disabled>
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                Live Cam Started <i class="fa fa-video"></i>
+                              </button>                      
+                           </div>
+                            <webcam
+                              [width]="280"
+                              [height]="320"
+                              [trigger]="triggerObservable"
+                              (start)="handleStart($event)"
+                              (imageCapture)="handleImage($event)"
+                              (stop)="handleStop($event)"
+                              (error)="handleError($event)"
+                            ></webcam>                                                      
+                          </div>
+                          
+                          <button (click)="startCamera()" class="btn btn-md btn-primary btn-block" style="margin:5px">
+                           <i class="fa fa-video"></i> Open Cam</button>
+                          <button (click)="stopCamera()" class="btn btn-md btn-danger btn-block" style="margin:5px">
+                            <i class="fa fa-video"></i> Stop Cam</button>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+        </div>
+    
+
+  </div>
+   
+</div>
+</div>

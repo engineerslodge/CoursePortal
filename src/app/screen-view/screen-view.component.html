@@ -1,0 +1,123 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12 grid-margin">
+          <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+              <h3 class="font-weight-bold">Welcome {{name | titlecase}},</h3>
+              <h6 class="font-weight-normal mb-0">All systems are running smoothly! System Date and Time : <span class="badge badge-warning text-bold">{{ currentDateTime }}</span></h6>
+            </div>
+            <div class="col-md-12 card" style="margin-top:12px; padding:20px;">
+                <div class="row"  >
+                    <div class="col-md-12 text-center ">
+                        <img src="assets/images/2.png" alt="" style="width:5%; margin-bottom:10px;"> 
+                       <h4 class="text-center">
+                   <i class="fa fa-video"></i>  Session :   {{Title |titlecase}}
+                       </h4>
+                       {{Description}}
+                       <!-- <p>
+                       
+                       </p> -->
+                    </div>                                      
+                </div>
+                <div class="row">                  
+                    <div class="col-md-8 text-center">
+                        <hr>
+                         <video width="670" height="458" autoplay >
+                            <source src="{{Url}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <hr>
+                       <div class="card bg-light" style="padding:20px">
+                          <span class="spinner-grow spinner-grow-sm text-danger" role="status" aria-hidden="true"style="margin-bottom:15px"></span>
+                          <span class="visually-hidden"></span>                        
+                        
+                        <webcam *ngIf="showCamera"
+                        [width]="260"
+                        [height]="320"
+                        [trigger]="triggerObservable"
+                        (start)="handleStart($event)"
+                        (imageCapture)="handleImage($event)"
+                        (stop)="handleStop($event)"
+                        (error)="handleError($event)"
+                      ></webcam> 
+                      <div class="row text-center" style="margin:5px;">
+                        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="FeedBack Responses"></textarea>
+                      </div>  
+                        <!-- <div class="template-demo" style="margin-top:0 !important">
+                            <hr>
+                            <button type="button" class="btn btn-primary btn-rounded btn-icon" (click)="startCamera()">
+                              <i class="fa fa-video"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-rounded btn-icon" (click)="stopCamera()">
+                              <i class="fa fa-times"></i>
+                            </button>                                               
+                          </div> -->
+                       </div>
+                       </div>
+                    <div class="col-md-12">
+                        <hr>
+                        <div class="template-demo text-center">
+                            <button type="button" class="btn btn-primary btn-icon-text" (click)="startCamera()">
+                              <i class="fa fa-video  btn-icon-prepend"></i>                                                    
+                              Open Camera
+                            </button>
+                            <button type="button" class="btn btn-danger btn-icon-text" (click)="stopCamera()">
+                              <i class="fa fa-times btn-icon-append"></i>                                                                            Close Camera  
+                            </button>                     
+                                <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+                                Launch demo modal
+                              </button>
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+    

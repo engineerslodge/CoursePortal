@@ -1,0 +1,206 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<section>
+ <!-- Add the overlay section with progress bar and text report -->
+<div class="overlay-spinner2" *ngIf="progressLoader">
+  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <i>Please Wait, This Process may take some minutes</i>
+  <div class="text-report ">Currently Uploading Video : {{progress}}%</div>
+</div>
+  
+</section>
+<app-nav></app-nav>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar-admin></app-sidebar-admin>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper" >
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> Course Category Portal</h3>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly!</h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-md btn-primary" routerLink="/adminHome"> 
+                        <i class="fa fa-home"></i> Dashboard
+                     </button>
+                  </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+        <div class="col-md-12 grid-margin" *ngIf="Create">
+            <div class="card">            
+                <div class="card-body">
+                    <p class="card-title">Upload Course Content</p>
+                   <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Course Title</label>
+                        <input type="text" placeholder="Course Title" class="form-control" #title>
+                    </div>
+                    <!-- <div class="col-md-2">
+                        <label for="">Course Fees ($)</label>
+                        <input type="number" placeholder="Course Fees" class="form-control" #fees>
+                    </div> -->
+                    <div class="col-md-3">
+                        <label for="">Set Time</label>
+                        <input type="time" class="form-control" #time>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Course Category</label>
+                       <select class="form-control" [(ngModel)]="selectedSamples">
+                        <option value="">Choose ..</option>
+                        <option value="{{itm.CourseCategory}}" *ngFor="let itm of Category">{{itm.CourseCategory}}</option>
+                       </select>
+                    </div>
+                    <div class="col-md-4"  style="margin-top:9px">
+                        <div class="form-group">
+                            <label for="">Upload Pre-Recorded Session(Max 2GB)</label>
+                            <input type="file" class="form-control" #fileInput (change)="onFileSelected($event)" accept="video/*">
+                          </div>
+                    </div> 
+                    <div class="col-md-4" style="margin-top:9px">
+                        <label for="">Choose a Schedule Day of the Week </label>
+                       <select class="form-control" [(ngModel)]="selectedDays">
+                        <option value="Monday">Choose ...</option>                        
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                        
+                       </select>
+                    </div>
+                    <div class="col-md-4"  style="margin-top:9px">
+                        <div class="form-group">
+                            <label for="">Do you want Client to Rewatch Content?</label>
+                            <div class="form-check form-switch" style="margin:3px">
+                                <input class="form-control" type="checkbox"  [(ngModel)]="isRewatchRequested" #request >
+                            </div>
+                        </div>
+                    </div>           
+                    <div class="col-md-12"  style="margin-top:9px">
+                        <div class="form-group">
+                            <label for="">Course Description </label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Course Description" aria-label="Recipient's username" #description>
+                              <div class="input-group-append">
+                                <button class="btn btn-sm btn-primary" type="button" (click)="Save(title.value,time.value,description.value,request.value)" > <i class="fa fa-save"></i> Save</button>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                   </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-12 grid-margin" *ngIf="!Create">
+            <div class="card">            
+                <div class="card-body">
+                    <p class="card-title">Edit Course Information</p>
+                   <div class="row">
+                    <div class="col-md-4">
+                        <label for="">Course Title</label>
+                        <input type="text" placeholder="Course Title" class="form-control" value="{{EditTitle}}" #edit1 readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Course Schedule </label>
+                        <select class="form-control" [(ngModel)]="selectedDays" >
+                            <option value="">Choose</option>                        
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>                            
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Set Time</label>
+                        <input type="time" class="form-control" value="{{EditSetTime}}" #edit3>
+                    </div>                    
+                           
+                    <div style="margin:30px">
+                        <button class="btn btn-primary btn-md" (click)="Update(edit1.value,edit3.value)"> <i class="fa fa-save"></i> Update Information</button>
+                    </div>
+                   
+                   </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title text-primary"><i class="fa fa-bullseye"></i> Course Uploded Information</p>
+                  <div class="row mb-3 mt-2">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control" [(ngModel)]="searchText" (input)="onInputChange()" aria-label="Text input with dropdown button" placeholder="Search Information by Title , Days of the Week Or Course Category">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="table-responsive">
+                        <table id="example" class="display expandable-table" style="width:100%">
+                          <thead>
+                            <tr>
+                              <th>keys#</th>
+                              <th>Uploader</th>
+                              <th>Course Title</th>
+                              <th>Category</th>
+                              <th>Week Days</th>
+                              <th> <i class="fa fa-history"></i> Set Time</th>
+                              <th></th>
+                              <th></th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let itm of Course | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems }">
+                                <td>{{itm.id}}</td>
+                                <td>{{itm.FullName}}</td>
+                                <td>{{itm.CourseTitle}}</td>
+                                <td>{{itm.CourseCategory}}</td>
+                                <td>{{itm.days}}</td>
+                                <td>{{('1970-01-01T' + itm.SetTime) | date:'hh:mm a' }}</td>
+                                <!-- <td>$ {{itm.courseFee}}</td> -->
+                                <td>
+                                    <button class="btn btn-primary btn-rounded btn-sm"  (click)="edit(itm)">  <i class="fa fa-edit"></i> </button>
+                                </td>
+                                <td><button class="btn btn-danger btn-rounded btn-sm"  (click)="trash(itm.id)">  <i class="fa fa-trash"></i> </button> </td>
+                                
+                            </tr>
+                          </tbody>
+                      </table>
+                                       <!-- Pagination -->
+                    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+                      </div>          
+                                  
+                  </div>
+                   
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+   
+</div>
+</div>

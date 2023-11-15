@@ -1,0 +1,128 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav></app-nav>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper" >     
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0 ">
+                  <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> Available Course</h3>
+                  <h6 class="font-weight-normal mb-0"> We Have <strong class="text-primary badge badge-warning">{{DataLength}}</strong> Courses Uploaded, You can use the filter section to Quickly find Your Course.</h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-md btn-primary" routerLink="/dashboard"> 
+                        <i class="fa fa-home"></i> Dashboard
+                     </button>
+                  </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-4 mb-4 stretch-card ">
+                    <div class="card bg-primary text-light">
+                      <div class="card-body">                        
+                        <p class="fs-30"> <i class="fa fa-address-book"></i> {{Course.length}}</p>
+                        <p class="m">Total Available Webinars on this Portal</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4 stretch-card ">
+                    <div class="card bg-danger text-light">
+                      <div class="card-body">                        
+                        <p class="fs-30"> <i class="fa fa-compass"></i> {{allCategory.length}}</p>
+                        <p class="m">Total Course Category</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4 stretch-card ">
+                    <div class="card bg-warning text-dark">
+                      <div class="card-body">                        
+                        <p class="fs-30"> <i class="fa fa-calendar"></i> {{getDashboard.SessionCount}} </p>
+                        <p class="m">Today's Sessions</p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+          
+          <div class="row" >
+            <div class="card" style="width:100%;padding: 17px;">
+                <label for="">Filter By Category or Search By text</label>
+                <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <select class="btn btn-sm btn-outline-primary" [(ngModel)]="selectedOption" (change)="onDropdownChange()" >
+                            <option value="">Choose..</option>
+                            <option value="{{itm.CourseCategory}}" *ngFor="let itm of allCategory">{{itm.CourseCategory}}</option>
+                        </select>
+                      </div>
+                      <input type="text" class="form-control" [(ngModel)]="searchText" (input)="onInputChange()" aria-label="Text input with dropdown button" placeholder="Search Title or Description of Course">
+                    </div>
+                  </div>
+            <div class="row" style="margin-left:10px; margin-right:10px">
+            <div class="col-md-12 alert alert-info alert-dismissible fade show" role="alert">
+              <strong>Project Rewire Course Library!</strong> offers you over <strong>{{DataLength}} +</strong> variety of Webinars and Sessions.             
+            </div>
+          </div>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12 grid-margin">
+          <div class="row">
+            <div class="col-md-6" *ngFor="let itm of Course | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems }" style="margin-top:9px;">
+                <div class="card text-center "  style="height: 620px;">
+                  <img class="card-img-top" src="https://static.vecteezy.com/system/resources/previews/002/187/946/non_2x/online-education-school-internet-university-training-courses-background-vector.jpg" alt="Card image cap">
+                  <div class="card-body" id="card">
+                    <h5 class="card-title text-primary"> <i class="fa fa-video"></i> : {{itm.CourseTitle}}</h5>
+<hr>
+                        <span style="font-size: 13px; font-weight:bold; margin:0px;">Category : {{itm.CourseCategory}}</span>
+                    
+                    <hr>
+                    <div>{{ transform(itm.CourseDescription,40)}}  &nbsp;<i class="fa fa-info-circle" data-toggle="tooltip" title="{{itm.CourseDescription}}" style="cursor: pointer;"  (click)="hover(itm.CourseDescription)"></i> </div>
+                    <!-- <hr>                   -->
+                    <!-- <button class="btn btn-sm btn-primary" (click)="Join(itm.CourseDescription)"> <i class="fa fa-user"></i>  Join Class </button> -->
+                  </div>
+                  <div class="card-footer text-light bg-primary transparent">
+                    <div class="row">
+                      <div class="col">
+                        <span class="text-light"><i class="fa fa-calendar text-light"></i> Scheduled <br>  
+                            <span class="badge badge-warning">{{itm.days}}</span>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <span class="text-light"><i class="fa fa-eye text-light"></i> Rewatch <br>  <span class="badge badge-warning">{{itm.rewatch}}</span></span>
+                      </div>
+                      <div class="col">
+                        <span class="text-light"><i class="fa fa-clock text-light"></i> Session Time <br>  <span class="badge badge-warning">{{('1970-01-01T' + itm.SetTime) | date:'hh:mm a' }}</span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              
+              </div>            <!-- pagination -->
+           
+           
+            </div>
+            <div class=" d-flex justify-content-center align-items-center" style="margin-top:20px;">
+                <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+            </div>
+        </div>
+        </div>
+       
+        </div>
+   
+</div>
+</div>

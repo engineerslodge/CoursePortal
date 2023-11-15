@@ -1,0 +1,146 @@
+
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0 ">
+                  <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> Secured Payment</h3>
+                  <h6 class="font-weight-normal mb-0">All Payment Are Secured On  <strong class="text-primary badge badge-warning"></strong> Project Rewire </h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-md btn-primary" routerLink="/dashboard"> 
+                        <i class="fa fa-home"></i> Dashboard
+                     </button>
+                  </div>
+                 </div>
+                </div>
+                <div class="col-md-12 text-center" style="margin-top:10px;">
+                    <img src="assets/images/stripe.png" alt="" style="width:19%">
+                </div>
+              </div>
+          <div class="row">
+
+<div class="">
+<div class="container">
+    <div class="mt-5">
+          <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Basic Plan -->
+            <div class="row align-items-center">
+              <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                  Monthly Plan
+                </h4>
+    
+                <div class="text-secondary-d1 text-120">
+                  <span class="ml-n15 align-text-bottom">&pound;</span><span class="text-180">12</span> / month
+                </div>
+              </div>
+    
+              <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <span>
+                    <span class="text-110">30 days Access to all Courses</span>
+                    to all Courses
+                  </span>
+                </li>
+    
+                <li class="mt-25">
+                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <span class="text-110">
+                   Easy Payment Gateway
+                </span>
+                </li>
+    
+                <li class="mt-25">
+                  <i class="fa fa-check text-success-m3 text-110 mr-25 mt-1"></i>
+                  <span class="text-110">
+                   Active Customer Service Support
+                </span>
+                </li>
+              </ul>
+    
+              <div class="col-12 col-md-4 text-center">
+                <a  class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click)="makePayment(12,'monthly')">
+                   <i class="fa fa-credit-card"></i> Pay Securely</a>
+              </div>
+            </div>
+    
+          </div>  
+    
+          <div class="d-style bgc-white btn btn-brc-tp btn-outline-green btn-h-outline-green btn-a-outline-green w-100 my-2 py-3 shadow-sm border-2">
+            <!-- Pro Plan -->
+            <div class="row align-items-center">
+              <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-green-d1 letter-spacing">
+                  Yearly Plan
+                </h4>
+    
+                <div class="text-secondary-d2 text-120">
+                  <div class="text-danger-m3 text-90 mr-1 ml-n4 pos-rel d-inline-block">
+                    &pound;<span class="text-150 deleted-text">144</span>
+                    <span>
+                        <span class="d-block rotate-45 position-l mt-n475 ml-35 fa-2x text-400 border-l-2 h-5 brc-dark-m1"></span>
+                    </span>
+                  </div>
+                  <span class="align-text-bottom">&pound;</span><span class="text-180">120</span> / Year
+                </div>
+              </div>
+    
+              <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <span>
+                    <span class="text-110">All Year Access </span>
+                    to all Courses
+                  </span>
+                </li>
+    
+                <li class="mt-25">
+                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <span class="text-110">
+                   Easy Payment Gateway Access
+                </span>
+                </li>
+    
+                <li class="mt-25">
+                  <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                  <span class="text-110">
+                   Active Customer Service Support
+                </span>
+                </li>
+              </ul>
+    
+              <div class="col-12 col-md-4 text-center">
+                <a href="#" class="f-n-hover btn btn-success btn-raised px-4 py-25 w-75 text-600" (click)="makePayment(120,'yearly')"> <i class="fa fa-credit-card"></i> Pay Securely </a>
+              </div>
+            </div>
+    
+          </div>
+
+        </div>
+    </div>
+
+        
+</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <app-footer></app-footer>
+ </div>
+    
