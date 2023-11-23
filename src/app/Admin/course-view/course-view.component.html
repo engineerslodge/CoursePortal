@@ -81,12 +81,21 @@
                   <div class="card-body" id="card">
                     <h5 class="card-title text-dark"> <i class="fa fa-bullseye"></i> {{itm.CourseTitle}}</h5>
 <hr>
+<<<<<<< HEAD
                         <span style="font-size: 13px; font-weight:normal; margin:0px;">Course Category : {{itm.CourseCategory}}</span>
                     
                     <hr>
                     <p>{{ transform(itm.CourseDescription,30)}}  &nbsp;<i class="fa fa-info-circle" data-toggle="tooltip" title="{{itm.CourseDescription}}" style="cursor: pointer;"  (click)="hover(itm.CourseDescription)"></i></p>
                     <!-- <hr>                   -->
                     <button class="btn btn-sm btn-primary mt-3" (click)="Join(itm)"> <i class="fa fa-user"></i>  Preview Class </button>
+=======
+                        <span style="font-size: 13px; font-weight:bold; margin:0px;">Course Category : {{itm.CourseCategory}}</span>
+                    
+                    <hr>
+                    <div>{{ transform(itm.CourseDescription,30)}}  &nbsp;<i class="fa fa-info-circle" data-toggle="tooltip" title="{{itm.CourseDescription}}" style="cursor: pointer;"  (click)="hover(itm.CourseDescription)"></i></div>
+                    <!-- <hr>                   -->
+                    <button class="btn btn-sm btn-primary" (click)="Join(itm)"> <i class="fa fa-user"></i>  Join Class </button>
+>>>>>>> 454fe35 (First Complete Project Push)
                   </div>
                   <div class="card-footer text-light bg-primary transparent">
                     <div class="row">                      

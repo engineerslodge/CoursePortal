@@ -41,11 +41,19 @@ export class MarketComponent {
     this.apiservice.GetInfor(localStorage.getItem("accesskey")).subscribe({
       next:(d)=>{
         this.getDashboard =d[0];
+<<<<<<< HEAD
      //   console.log(d);
         this.loader =false;
       },
       error:(err)=>{
     //   // console.log(err);
+=======
+        console.log(d);
+        this.loader =false;
+      },
+      error:(err)=>{
+        console.log(err);
+>>>>>>> 454fe35 (First Complete Project Push)
         this.loader=false;
       }
     });
@@ -80,7 +88,11 @@ export class MarketComponent {
       this.Course = d;
       this.DataLength =d.length
     }, error:(err)=>{
+<<<<<<< HEAD
    //  // console.log(err);
+=======
+      console.log(err);
+>>>>>>> 454fe35 (First Complete Project Push)
       this.loader =false;
     }
   });
@@ -103,7 +115,11 @@ export class MarketComponent {
         this.Course = d;
         this.DataLength =d.length
       } , error:(err)=>{
+<<<<<<< HEAD
        // console.log(err);
+=======
+        console.log(err);
+>>>>>>> 454fe35 (First Complete Project Push)
         this.loader = false;
       }
     });
@@ -131,9 +147,12 @@ export class MarketComponent {
       Join(data:any){
         alert("Description : \n" +data)
       }
+<<<<<<< HEAD
 
       onToggleSidebar(): void {  
         this.apiservice.toggleSidebar();
       }
+=======
+>>>>>>> 454fe35 (First Complete Project Push)
   }
   

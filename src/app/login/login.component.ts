@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ApiDataService } from '../Shared/api-data.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { ToastrService } from 'ngx-toastr';
+=======
+>>>>>>> 454fe35 (First Complete Project Push)
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,11 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent {
   LoginData : any= [];
   loader : boolean  = false;
+<<<<<<< HEAD
   constructor( private apiservices :ApiDataService , private router : Router, private toastr:ToastrService){}
+=======
+  constructor( private apiservices :ApiDataService , private router : Router){}
+>>>>>>> 454fe35 (First Complete Project Push)
 
   ngOnInit(){
    // this.loader =true;
@@ -36,7 +43,11 @@ export class LoginComponent {
           localStorage.setItem("email", email);
           localStorage.setItem("role", Role);        
           this.loader =false;
+<<<<<<< HEAD
           this.toastr.success(fullname + ", Welcome to Project Rewire Studio!");
+=======
+          alert(fullname + ", Welcome to Project Rewire Studio!");
+>>>>>>> 454fe35 (First Complete Project Push)
           if(localStorage.getItem("role") === "Customer"){
             this.router.navigate(["/dashboard"]);
           } 
@@ -46,15 +57,24 @@ export class LoginComponent {
           
         },
         error:(err)=>{
+<<<<<<< HEAD
           // console.log(err);
           this.toastr.error("Error !, " + err.error.Message);
+=======
+          console.log(err);
+          alert("Error !, " + err.error.Message);
+>>>>>>> 454fe35 (First Complete Project Push)
           this.loader =false;
         }
       });
       
     } else {
       this.loader =false;
+<<<<<<< HEAD
       this.toastr.error("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
+=======
+      alert("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
+>>>>>>> 454fe35 (First Complete Project Push)
     }
   }
   

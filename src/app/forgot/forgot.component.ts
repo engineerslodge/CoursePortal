@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ApiDataService } from '../Shared/api-data.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { ToastrService } from 'ngx-toastr';
+=======
+>>>>>>> 454fe35 (First Complete Project Push)
 
 @Component({
   selector: 'app-forgot',
@@ -10,9 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ForgotComponent {
   loader:boolean = false;
+<<<<<<< HEAD
   Requesting :boolean =false;
   GetCode : boolean =true;
   constructor (private apiservice:ApiDataService , private router :Router, private toastr :ToastrService){}
+=======
+  constructor (private apiservice:ApiDataService , private router :Router){}
+>>>>>>> 454fe35 (First Complete Project Push)
 
   ngOnInit(){
 
@@ -24,10 +31,15 @@ export class ForgotComponent {
     {    const encodedEmail = encodeURIComponent(data);
     this.apiservice.RequestOTP(encodedEmail).subscribe({
      next:(d)=>{
+<<<<<<< HEAD
      //console.log(d);
       this.toastr.success("OTP Sent to Email Provided!");
       this.Requesting = true;
       this.GetCode =false;
+=======
+      console.log(d);
+      alert("OTP Sent to Email Provided!");
+>>>>>>> 454fe35 (First Complete Project Push)
       this.loader =false;
      }, error:(err)=>{
       console.log(err);
@@ -35,7 +47,11 @@ export class ForgotComponent {
      }
     });
   } else{
+<<<<<<< HEAD
     this.toastr.error("Invalid Email Credentials!");
+=======
+    alert("Invalid Email Credentials!");
+>>>>>>> 454fe35 (First Complete Project Push)
     this.loader =false;
   }
 }
@@ -49,6 +65,7 @@ Request(email:any,password:any,otp:any){
         "Email" : email,
         "Password" : password ,
         "OTP" : otp
+<<<<<<< HEAD
     }
     this.apiservice.ForgotPassword(d).subscribe({
         next:(d)=>{
@@ -58,13 +75,27 @@ Request(email:any,password:any,otp:any){
         },
         error:(err)=>{
           this.toastr.error("Invalid Operation, Try Again!");
+=======
+      }
+      this.apiservice.ForgotPassword(d).subscribe({
+        next:(d)=>{
+          alert("Password Changed Successfully!");
+          this.loader=false;
+        },
+        error:(err)=>{
+          alert("Invalid Operation, Try Again!");
+>>>>>>> 454fe35 (First Complete Project Push)
           this.loader =false;
         }
       });
     }
     else 
     {
+<<<<<<< HEAD
       this.toastr.error("Invalid Credentials!");
+=======
+      alert("Invalid Credentials!");
+>>>>>>> 454fe35 (First Complete Project Push)
     }
 
   }

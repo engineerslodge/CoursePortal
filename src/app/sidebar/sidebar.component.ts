@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiDataService } from '../Shared/api-data.service';
 import { ToastrService } from 'ngx-toastr';
 
+=======
+import { Component } from '@angular/core';
+>>>>>>> 454fe35 (First Complete Project Push)
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
+<<<<<<< HEAD
   styleUrls: ['./sidebar.component.css'],
   
 })
@@ -42,3 +47,10 @@ Redirect(data:any){
 
 
 }
+=======
+  styleUrls: ['./sidebar.component.css']
+})
+export class SidebarComponent {
+
+}
+>>>>>>> 454fe35 (First Complete Project Push)

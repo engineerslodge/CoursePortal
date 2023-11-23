@@ -114,7 +114,11 @@ export class UploadCourseComponent {
         }
       
         this.progressLoader =false;
+<<<<<<< HEAD
      // console.log(df)
+=======
+      console.log(df)
+>>>>>>> 454fe35 (First Complete Project Push)
         // console.log(df);
         this.apiservice.SaveCourse(df).subscribe({
           next:(result)=>{
@@ -279,7 +283,10 @@ if(confirmationResult){
           }
           , error:()=>{
             alert("Failed Operations!");
+<<<<<<< HEAD
             this.loader =false;
+=======
+>>>>>>> 454fe35 (First Complete Project Push)
           }
         });
       }
