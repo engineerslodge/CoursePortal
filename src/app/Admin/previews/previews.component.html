@@ -1,0 +1,116 @@
+<div class="body">
+      <div class="headers">
+        <nav>
+            <img src="assets/images/cam/logo.png" class="logo" routerLink="/adminViews">
+            <ul>
+                <li><img src="assets/images/cam/live.png" class="active" (click)="startCamera()"></li>
+                <li><img src="assets/images/cam/video.png"  (click)="stopCamera()"></li>
+                <!-- <li><img src="assets/images/cam/message.png" ></li> -->
+                <!-- <li><img src="assets/images/cam/notification.png" ></li> -->
+                <li><img src="assets/images/cam/users.png" (click)="Users()"></li>
+                <li><img src="assets/images/cam/setting.png" (click)="reply('All Settings is Automated')" ></li>
+           </ul>
+        </nav>
+        <section>
+            <div class="overlay-spinner" *ngIf="loader">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+              </div>    
+        </section>
+        <div class="container">
+            <div class="top-icons">
+                <img src="assets/images/cam/search.png">
+                <img src="assets/images/cam/menu.png">
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="text-center text-white mb-2">
+                        <h5 style="font-size:large"> <i class="fa fa-video"></i> {{Title |titlecase}}</h5>
+                    </div>
+                    <video width="670" height="458" autoplay class="host-img" >
+                        <source src="{{Url}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    <!-- <img src="assets/images/cam/image.png" class="host-img"> -->
+                    <div class="controls">
+                        <img src="assets/images/cam/chat.png" (click)="reply('Feedback Response Will be Prompted after the Session')">
+                        <img src="assets/images/cam/disconnect.png"  (click)="reply('This Function is Disabled')" >
+                        <img src="assets/images/cam/call.png" class="call-icon" data-toggle="modal" data-target="#exampleModalCenter">
+                        <img src="assets/images/cam/mic.png" (click)="reply('Check your device settings for setup')">
+                        <img src="assets/images/cam/cast.png" (click)="reply('Cast Function is Disabled')">
+                       
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="joined">
+                        <p><i class="fa fa-camera"></i> {{name | titlecase}}, You joined</p>
+                        <div class="col-md-12 justify-content-center d-flex">
+                            <webcam *ngIf="showCamera"
+                            [width]="190"
+                            [height]="220"
+                            [trigger]="triggerObservable"
+                            (start)="handleStart($event)"
+                            (imageCapture)="handleImage($event)"
+                            (stop)="handleStop($event)"
+                            (error)="handleError($event)"
+                          ></webcam> 
+                        </div>
+<br>
+                      <p class="text-center">
+                      
+                        Joined with others <i class=" fa fa-user-circle"> </i> +{{dataLenght.length}} Members
+                      </p>
+                    </div>
+                    <div class="invite">
+                        <p class="text-center">
+                            <strong>{{Title |titlecase}}</strong>
+                        </p>
+                        <hr>
+                        <div>
+                            <p class="text-justify">
+                                {{Description | titlecase}}
+                            </p> 
+                            <!-- <img src="assets/images/cam/people-1.png" alt="">
+                            <img src="assets/images/cam/people-2.png" alt="">
+                            <img src="assets/images/cam/people-3.png" alt="">
+                            <img src="assets/images/cam/people-4.png" alt="">
+                            <img src="assets/images/cam/people-5.png" alt="">
+                          
+                            <img src="assets/images/cam/user-1.png" alt="">
+                            <img src="assets/images/cam/user-2.png" alt="">
+                            <img src="assets/images/cam/user-3.png" alt="">
+                            <img src="assets/images/cam/user-4.png" alt="">
+                            <img src="assets/images/cam/user-5.png" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-camera"></i> FeedBack Entries</h5>
+          <i></i>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h6 class="text-center text-mute mb-3"> To Provide You More Insight about this Session , <br>Please Leave a Feedback Reponse or Any Questions 
+            </h6>
+         <textarea name="" id="" cols="30" rows="13" class="form-control"  #mails></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="Session(mails.value)" data-dismiss="modal"> <i class=" fa fa-camera" ></i> End Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

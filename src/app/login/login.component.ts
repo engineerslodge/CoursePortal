@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiDataService } from '../Shared/api-data.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   LoginData : any= [];
   loader : boolean  = false;
-  constructor( private apiservices :ApiDataService , private router : Router){}
+  constructor( private apiservices :ApiDataService , private router : Router, private toastr:ToastrService){}
 
   ngOnInit(){
    // this.loader =true;
@@ -35,7 +36,7 @@ export class LoginComponent {
           localStorage.setItem("email", email);
           localStorage.setItem("role", Role);        
           this.loader =false;
-          alert(fullname + ", Welcome to Project Rewire Studio!");
+          this.toastr.success(fullname + ", Welcome to Project Rewire Studio!");
           if(localStorage.getItem("role") === "Customer"){
             this.router.navigate(["/dashboard"]);
           } 
@@ -45,15 +46,15 @@ export class LoginComponent {
           
         },
         error:(err)=>{
-          console.log(err);
-          alert("Error !, " + err.error.Message);
+          // console.log(err);
+          this.toastr.error("Error !, " + err.error.Message);
           this.loader =false;
         }
       });
       
     } else {
       this.loader =false;
-      alert("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
+      this.toastr.error("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
     }
   }
   

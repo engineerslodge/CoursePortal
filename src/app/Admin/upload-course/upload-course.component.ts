@@ -114,7 +114,7 @@ export class UploadCourseComponent {
         }
       
         this.progressLoader =false;
-      console.log(df)
+     // console.log(df)
         // console.log(df);
         this.apiservice.SaveCourse(df).subscribe({
           next:(result)=>{
@@ -279,6 +279,7 @@ if(confirmationResult){
           }
           , error:()=>{
             alert("Failed Operations!");
+            this.loader =false;
           }
         });
       }

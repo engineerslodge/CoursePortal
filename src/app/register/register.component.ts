@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiDataService } from '../Shared/api-data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterComponent {
   loader : boolean =false;
   LoginData: any = []; 
 
-  constructor(private router :Router, private apiservices:ApiDataService){}
+  constructor(private router :Router, private apiservices:ApiDataService, private toastr:ToastrService){}
   ngOnInit(){
 
   }
@@ -26,15 +27,15 @@ export class RegisterComponent {
       }
   
       this.loader = true;
-      console.log(Data);
+      // console.log(Data);
       this.apiservices.Register(Data).subscribe({
         next:(d)=>{            
           this.loader =false;
-          alert("Welcome to Project Rewire Studio!, We will Redirect you to Login for access");
+          this.toastr.success("Welcome to Project Rewire Studio!, We will Redirect you to Login for access");
           this.router.navigate(["/Login"]);
         },
         error:(err)=>{
-          alert("Invalid Registration Credentials , You may want to try different Email");
+          this.toastr.error("Invalid Registration Credentials , You may want to try different Email");
           this.loader =false;
         }
       });
@@ -43,7 +44,7 @@ export class RegisterComponent {
       
     } else {
       this.loader =false;
-      alert("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
+      this.toastr.error("Invalid Credentials Details"); // Display an "Invalid Credentials Details" message
     }
   }
   

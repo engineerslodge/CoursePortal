@@ -39,7 +39,9 @@ import { PayNowComponent } from './pay-now/pay-now.component';
 import { LiveCamComponent } from './live-cam/live-cam.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LibraryComponent } from './library/library.component';
+import { CourseInfoComponent } from './course-info/course-info.component';
+import { PreviewsComponent } from './Admin/previews/previews.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ScreenViewComponent,
     WaitingRoomComponent,
     PayNowComponent,
-    LiveCamComponent
+    LiveCamComponent,
+    LibraryComponent,
+    CourseInfoComponent,
+    PreviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxPaginationModule,
     WebcamModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(), 
+
   ],
   providers: [AuthGuard,RoleGuard],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiDataService } from '../Shared/api-data.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgot',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ForgotComponent {
   loader:boolean = false;
-  constructor (private apiservice:ApiDataService , private router :Router){}
+  Requesting :boolean =false;
+  GetCode : boolean =true;
+  constructor (private apiservice:ApiDataService , private router :Router, private toastr :ToastrService){}
 
   ngOnInit(){
 
@@ -21,8 +24,10 @@ export class ForgotComponent {
     {    const encodedEmail = encodeURIComponent(data);
     this.apiservice.RequestOTP(encodedEmail).subscribe({
      next:(d)=>{
-      console.log(d);
-      alert("OTP Sent to Email Provided!");
+     //console.log(d);
+      this.toastr.success("OTP Sent to Email Provided!");
+      this.Requesting = true;
+      this.GetCode =false;
       this.loader =false;
      }, error:(err)=>{
       console.log(err);
@@ -30,7 +35,7 @@ export class ForgotComponent {
      }
     });
   } else{
-    alert("Invalid Email Credentials!");
+    this.toastr.error("Invalid Email Credentials!");
     this.loader =false;
   }
 }
@@ -44,21 +49,22 @@ Request(email:any,password:any,otp:any){
         "Email" : email,
         "Password" : password ,
         "OTP" : otp
-      }
-      this.apiservice.ForgotPassword(d).subscribe({
+    }
+    this.apiservice.ForgotPassword(d).subscribe({
         next:(d)=>{
-          alert("Password Changed Successfully!");
+          this.toastr.success("Password Changed Successfully!");
+          this.toastr.info("Please Proceed to Login");
           this.loader=false;
         },
         error:(err)=>{
-          alert("Invalid Operation, Try Again!");
+          this.toastr.error("Invalid Operation, Try Again!");
           this.loader =false;
         }
       });
     }
     else 
     {
-      alert("Invalid Credentials!");
+      this.toastr.error("Invalid Credentials!");
     }
 
   }

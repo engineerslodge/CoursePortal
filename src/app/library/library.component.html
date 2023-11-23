@@ -1,0 +1,70 @@
+<section>
+    <div class="overlay-spinner" *ngIf="loader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>    
+</section>
+<app-nav></app-nav>
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+ <!-- partial -->
+ <div class="main-panel">
+    <div class="content-wrapper" >     
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0 ">
+                  <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> {{category | titlecase}}</h3>
+                  <h6 class="font-weight-normal mb-0"> You are Currently <strong class="text-primary ">Viewing all Courses</strong> that belongs to {{category | titlecase}}</h6>
+                </div>
+                <div class="col-12 col-xl-4">
+                 <div class="justify-content-end d-flex">
+                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                    <button class="btn btn-md btn-primary" routerLink="/dashboard"> 
+                        <i class="fa fa-home"></i> Dashboard
+                     </button>
+                  </div>
+                 </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12 card" style="padding:20px">
+                  <div class="table-responsive">
+                    <table id="example" class="display expandable-table bordered" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>keys#</th> 
+                          <th>Course Title</th>
+                          <th>Category</th>
+                          <th>Days</th> 
+                          <th>Time</th>                          
+                          <th>Action</th>
+                          <!-- <th>Notes</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let itm of Course; let i = index ">
+                          <td>{{i+1}}</td>
+                          <td>{{itm.CourseTitle | titlecase}}</td>
+                          <td>{{itm.CourseCategory}}</td>
+                          <td>{{itm.days}}</td>
+                          <td>{{ ('1970-01-01T' + itm.SetTime) | date:'hh:mm a' }}</td>                          
+                          <td>
+                            <a style="cursor: pointer;" (click)="check(itm.id)" class="btn btn-sm btn-warning">
+                            <i class="fa fa-copy"></i> More Info
+                            </a>
+                          </td>                      
+                        </tr>
+                      </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+    </div>
+    </div>
+    

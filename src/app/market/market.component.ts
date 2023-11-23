@@ -41,11 +41,11 @@ export class MarketComponent {
     this.apiservice.GetInfor(localStorage.getItem("accesskey")).subscribe({
       next:(d)=>{
         this.getDashboard =d[0];
-        console.log(d);
+     //   console.log(d);
         this.loader =false;
       },
       error:(err)=>{
-        console.log(err);
+    //   // console.log(err);
         this.loader=false;
       }
     });
@@ -80,7 +80,7 @@ export class MarketComponent {
       this.Course = d;
       this.DataLength =d.length
     }, error:(err)=>{
-      console.log(err);
+   //  // console.log(err);
       this.loader =false;
     }
   });
@@ -103,7 +103,7 @@ export class MarketComponent {
         this.Course = d;
         this.DataLength =d.length
       } , error:(err)=>{
-        console.log(err);
+       // console.log(err);
         this.loader = false;
       }
     });
@@ -130,6 +130,10 @@ export class MarketComponent {
   
       Join(data:any){
         alert("Description : \n" +data)
+      }
+
+      onToggleSidebar(): void {  
+        this.apiservice.toggleSidebar();
       }
   }
   

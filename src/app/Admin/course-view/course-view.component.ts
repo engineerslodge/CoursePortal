@@ -129,6 +129,6 @@ GetCourses(){
     Join(data:any){
       this.apiservice.setData(data);
       this.loader =false;
-      this.router.navigate(['/Livecam']);
+      this.router.navigate(['/Previews']);
     }
 }

@@ -1,7 +1,14 @@
+<section>
+  <div class="overlay-spinner" *ngIf="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>    
+</section>
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo mr-5" routerLink="/dashboard" style="margin:10px">
-        <img src="assets/images/logo.png" alt="" style="width: 80%;">
+        <img src="assets/images/logo.png" alt="" style="width: 80px; height:8vh">
        <!-- <h4 style="margin:10px">
         <i class="fa fa-bullseye"></i> Project Rewire
        </h4> -->
@@ -13,7 +20,7 @@
     </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" id="sidebar ">
         <span class="icon-menu"></span>
       </button>
       <ul class="navbar-nav mr-lg-2">
@@ -29,7 +36,10 @@
         </li>
       </ul>
       <ul class="navbar-nav navbar-nav-right">
-    
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" >
+          <img src="assets/images/logo.png" class="navbar-brand" alt="" style="width: 80px;">
+        </button>
+
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             <i class="icon-bell mx-0"></i>
@@ -78,6 +88,9 @@
             </a> -->
           </div>
         </li>
+        
+     
+
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
             <img src="assets/images/faces/face28.jpg" alt="profile"/>
@@ -106,12 +119,10 @@
           </div>
         </li>
         <li class="nav-item d-none d-lg-flex text-danger" style="margin:0px !important"> 
-          <a class="nav-link" href="#" style="font-size:27px" >
+          <a class="nav-link" style="font-size:27px;cursor: pointer;" >
             <i class="fa fa-power-off" (click)="Logout()"></i>            </a>
         </li>
       </ul>
-      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" >
-        <!-- <span class="fa fa-home"></span> -->
-      </button>
+
     </div>
   </nav>

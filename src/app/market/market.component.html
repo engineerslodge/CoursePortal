@@ -5,9 +5,9 @@
         </div>
       </div>    
 </section>
-<app-nav></app-nav>
+<app-nav-bar (toggleSidebar)="onToggleSidebar()" ></app-nav-bar>
 <div class="container-fluid page-body-wrapper">
-<app-sidebar></app-sidebar>
+<app-sidebar #sidebar></app-sidebar>
  <!-- partial -->
  <div class="main-panel">
     <div class="content-wrapper" >     
@@ -15,7 +15,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0 ">
-                  <h3 class="font-weight-bold text-primary"><i class=" fa fa-bullseye"></i> Available Course</h3>
+                  <h3 class="font-weight-normal text-primary"><i class=" fa fa-bullseye"></i> Available Course</h3>
                   <h6 class="font-weight-normal mb-0"> We Have <strong class="text-primary badge badge-warning">{{DataLength}}</strong> Courses Uploaded, You can use the filter section to Quickly find Your Course.</h6>
                 </div>
                 <div class="col-12 col-xl-4">
@@ -83,11 +83,11 @@
           <div class="row">
             <div class="col-md-6" *ngFor="let itm of Course | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems }" style="margin-top:9px;">
                 <div class="card text-center "  style="height: 620px;">
-                  <img class="card-img-top" src="https://static.vecteezy.com/system/resources/previews/002/187/946/non_2x/online-education-school-internet-university-training-courses-background-vector.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="assets/images/header.png" alt="Card image cap">
                   <div class="card-body" id="card">
                     <h5 class="card-title text-primary"> <i class="fa fa-video"></i> : {{itm.CourseTitle}}</h5>
 <hr>
-                        <span style="font-size: 13px; font-weight:bold; margin:0px;">Category : {{itm.CourseCategory}}</span>
+                        <span style="font-size: 13px; font-weight:normal; margin:0px;">Category : {{itm.CourseCategory}}</span>
                     
                     <hr>
                     <div>{{ transform(itm.CourseDescription,40)}}  &nbsp;<i class="fa fa-info-circle" data-toggle="tooltip" title="{{itm.CourseDescription}}" style="cursor: pointer;"  (click)="hover(itm.CourseDescription)"></i> </div>
