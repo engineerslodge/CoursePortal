@@ -10,10 +10,10 @@ export class ApiDataService {
 
   sharedData :any; 
   private isSidebarOpen = new BehaviorSubject<boolean>(false);
-  private chatGpt = 'https://api.openai.com/v1/chat/completions'; 
+  private chatGpt = ''; 
   //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
   // private chatGptKey ='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';
-  private chatGptKey ='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';
+  private chatGptKey ='';
 // readonly apiUrl = 'http://localhost:50151/api/Data/';
  readonly apiUrl = "https://daredevilmediainc.com/api/Data/"
 //  readonly apiUrl = 'https://backend.metamax.ai/api/Data/';
