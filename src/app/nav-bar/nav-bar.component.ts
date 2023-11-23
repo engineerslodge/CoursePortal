@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ApiDataService } from '../Shared/api-data.service';
 import { filter } from 'rxjs';
-=======
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiDataService } from '../Shared/api-data.service';
->>>>>>> 454fe35 (First Complete Project Push)
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-<<<<<<< HEAD
   styleUrls: ['./nav-bar.component.css'],
   changeDetection: ChangeDetectionStrategy.Default,
 })
@@ -54,30 +47,10 @@ export class NavBarComponent {
   }
 
   Logout() {
-=======
-  styleUrls: ['./nav-bar.component.css']
-})
-export class NavBarComponent {
-
-  constructor(private router  : Router, private apiservice:ApiDataService){}
-
-  ngOnInit(){
-  
-  }
-  
-Logout(){
->>>>>>> 454fe35 (First Complete Project Push)
     localStorage.removeItem('accesskey');
     localStorage.removeItem('customername');
     localStorage.removeItem('email');
     localStorage.removeItem('Wallet');
-<<<<<<< HEAD
     this.router.navigate(['/Login']);
   }
 }
-=======
-    this.router.navigate(["/Login"]);
-  }
-  }
-  
->>>>>>> 454fe35 (First Complete Project Push)

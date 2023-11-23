@@ -14,13 +14,8 @@ export class ApiDataService {
   //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
   // private chatGptKey ='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';
   private chatGptKey ='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';
-<<<<<<< HEAD
 // readonly apiUrl = 'http://localhost:50151/api/Data/';
  readonly apiUrl = "https://daredevilmediainc.com/api/Data/"
-=======
-  readonly apiUrl = 'http://localhost:50151/api/Data/';
- // readonly apiUrl = "https://daredevilmediainc.com/api/Data/"
->>>>>>> 454fe35 (First Complete Project Push)
 //  readonly apiUrl = 'https://backend.metamax.ai/api/Data/';
 
 constructor(private http: HttpClient) { }
@@ -55,11 +50,7 @@ AdminGetCustomer(data:any){
 
 AdminDeleteCustomer(data:any, id:any)
 {
-<<<<<<< HEAD
   return this.http.get<any>(this.apiUrl+'DeleteCustomer?accesskey='+data+'&id='+id);
-=======
-  return this.http.delete<any>(this.apiUrl+'DeleteCustomer?accesskey='+data+'&id='+id);
->>>>>>> 454fe35 (First Complete Project Push)
 }
 
 AdminCategory(data:any){
@@ -72,11 +63,7 @@ return this.http.get<any>(this.apiUrl+'GetCategory?accesskey='+data);
 
 DeleteCategory(data:any, id:any)
 {
-<<<<<<< HEAD
   return this.http.get<any>(this.apiUrl+'DeleteCategory?accesskey='+data+'&id='+id);
-=======
-  return this.http.delete<any>(this.apiUrl+'DeleteCategory?accesskey='+data+'&id='+id);
->>>>>>> 454fe35 (First Complete Project Push)
 }
 
 // SaveImage(data:any){
@@ -114,11 +101,7 @@ SaveImage(formData: any): Observable<HttpEvent<any>> {
       
       DeleteCourse(data:any, id:any)
       {
-<<<<<<< HEAD
         return this.http.get<any>(this.apiUrl+'DeleteCourse?accesskey='+data+'&id='+id);
-=======
-        return this.http.delete<any>(this.apiUrl+'DeleteCourse?accesskey='+data+'&id='+id);
->>>>>>> 454fe35 (First Complete Project Push)
       }
       GetCourseByCategory(accesskey:any, id:any){
         return this.http.get<any>(this.apiUrl+'GetCourseByCategory?accesskey='+accesskey+'&category='+id);
@@ -191,7 +174,6 @@ SaveImage(formData: any): Observable<HttpEvent<any>> {
         EndSession(data:any){
           return this.http.post<any>(this.apiUrl+'EndSession',data);
         }
-<<<<<<< HEAD
 
         GetCoursesByCat(data:any){
           return this.http.get<any>(this.apiUrl+'GetCoursesByCat?data='+data);
@@ -217,6 +199,4 @@ SaveImage(formData: any): Observable<HttpEvent<any>> {
         toggleSidebar(): void {
           this.isSidebarOpenSubject.next(!this.isSidebarOpenSubject.value);
         }
-=======
->>>>>>> 454fe35 (First Complete Project Push)
   }

@@ -26,16 +26,11 @@
             ],
             "styles": [
               "src/styles.css"
-<<<<<<< HEAD
              
             ],
             "scripts": [
              
             ]
-=======
-            ],
-            "scripts": []
->>>>>>> 454fe35 (First Complete Project Push)
           },
           "configurations": {
             "production": {
@@ -95,10 +90,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "@angular/material/prebuilt-themes/indigo-pink.css",
-=======
->>>>>>> 454fe35 (First Complete Project Push)
               "src/styles.css"
             ],
             "scripts": []

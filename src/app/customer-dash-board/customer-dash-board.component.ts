@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DefaultIterableDiffer, ElementRef, EventEmitter, NgZone, Output, Renderer2, ViewEncapsulation } from '@angular/core';
-=======
-import { Component, DefaultIterableDiffer } from '@angular/core';
->>>>>>> 454fe35 (First Complete Project Push)
 import { ApiDataService } from '../Shared/api-data.service';
 import { interval } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,12 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-customer-dash-board',
   templateUrl: './customer-dash-board.component.html',
-<<<<<<< HEAD
   styleUrls: ['./customer-dash-board.component.css'],
   encapsulation: ViewEncapsulation.None, // Add this li
-=======
-  styleUrls: ['./customer-dash-board.component.css']
->>>>>>> 454fe35 (First Complete Project Push)
 })
 export class CustomerDashBoardComponent {
 loader:boolean =false;
@@ -25,15 +17,10 @@ getDashboard2 : any =[];
 currentDateTime: string = '';
 allCategory : any =[];
 selectedOption : any=[];
-<<<<<<< HEAD
 isSidebarOpen: boolean = false;
 
 constructor(private apiservice :ApiDataService,private ngZone: NgZone, private router : Router,private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef){}
 
-=======
-
-constructor(private apiservice :ApiDataService, private router : Router){}
->>>>>>> 454fe35 (First Complete Project Push)
 ngOnInit(){
   this.name = localStorage.getItem("customername");
   this.GetAllCategory();
@@ -42,34 +29,21 @@ ngOnInit(){
   interval(1000).subscribe(() => {
     this.updateCurrentDateTime();
   });
-<<<<<<< HEAD
 
 }
 
 
 
-=======
-}
-
->>>>>>> 454fe35 (First Complete Project Push)
 Dashboard(){
 this.loader =true;
 this.apiservice.GetInfor(localStorage.getItem("accesskey")).subscribe({
   next:(d)=>{
     this.getDashboard =d[0];
-<<<<<<< HEAD
   //  console.log(d);
     this.loader =false;
   },
   error:(err)=>{
   // console.log(err);
-=======
-    console.log(d);
-    this.loader =false;
-  },
-  error:(err)=>{
-    console.log(err);
->>>>>>> 454fe35 (First Complete Project Push)
     this.loader=false;
   }
 });
@@ -94,17 +68,10 @@ GetAllCategory(){
   this.loader = true;
   this.apiservice.GetCategory(localStorage.getItem("accesskey")).subscribe({
     next:(d)=>{
-<<<<<<< HEAD
      // console.log(d);
       this.loader =false;
       this.allCategory = d;
     //  console.log(d);
-=======
-      console.log(d);
-      this.loader =false;
-      this.allCategory = d;
-      console.log(d);
->>>>>>> 454fe35 (First Complete Project Push)
     },
     error:(er)=>{
       this.loader =false;
@@ -240,7 +207,6 @@ Tolerance(){
     },
     error:(err)=>{
       this.loader =false;
-<<<<<<< HEAD
    //   console.log(err);
     }
   });
@@ -254,10 +220,4 @@ onToggleSidebar(): void {
 
 
 
-=======
-      console.log(err);
-    }
-  });
-}
->>>>>>> 454fe35 (First Complete Project Push)
 }

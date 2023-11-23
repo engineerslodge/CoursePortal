@@ -129,10 +129,6 @@ GetCourses(){
     Join(data:any){
       this.apiservice.setData(data);
       this.loader =false;
-<<<<<<< HEAD
       this.router.navigate(['/Previews']);
-=======
-      this.router.navigate(['/Livecam']);
->>>>>>> 454fe35 (First Complete Project Push)
     }
 }

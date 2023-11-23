@@ -25,12 +25,9 @@ import { ScreenViewComponent } from './screen-view/screen-view.component';
 import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
 import { PayNowComponent } from './pay-now/pay-now.component';
 import { LiveCamComponent } from './live-cam/live-cam.component';
-<<<<<<< HEAD
 import { LibraryComponent } from './library/library.component';
 import { CourseInfoComponent } from './course-info/course-info.component';
 import { PreviewsComponent } from './Admin/previews/previews.component';
-=======
->>>>>>> 454fe35 (First Complete Project Push)
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -45,13 +42,9 @@ const routes: Routes = [
   {path: 'LiveClass', component: ScreenViewComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
   {path: 'WaitingRoom', component: WaitingRoomComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
   {path: 'PayNow', component: PayNowComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
-<<<<<<< HEAD
   {path: 'Livecam', component: LiveCamComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
   {path: 'Library/:id', component: LibraryComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
   {path: 'CourseInfo/:id', component: CourseInfoComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Customer' },},
-=======
-  {path: 'Livecam', component: LiveCamComponent,},
->>>>>>> 454fe35 (First Complete Project Push)
 
 
   // admin Routing Table 
@@ -65,10 +58,7 @@ const routes: Routes = [
   {path:'adminViews' , component:CourseViewComponent , canActivate:[AuthGuard,RoleGuard], data:{requiredRole : 'Admin'},},
   {path:'adminEditCourse' , component:EditCourseComponent , canActivate:[AuthGuard,RoleGuard], data:{requiredRole : 'Admin'},},
   {path: 'Calendar', component: CalendarComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Admin' },},
-<<<<<<< HEAD
   {path: 'Previews', component: PreviewsComponent,canActivate:[AuthGuard,RoleGuard], data:{ requiredRole: 'Admin' },},
-=======
->>>>>>> 454fe35 (First Complete Project Push)
 
   // admin routing ends 
   {path : 'PayStatus', component: PaymentStatusComponent},

@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'VideoConferencing';
-<<<<<<< HEAD
 
   
-=======
->>>>>>> 454fe35 (First Complete Project Push)
 }
