@@ -36,7 +36,7 @@ GetAllCategory(){
 } 
 
 Redirect(data:any){
- this.toastr.success("You are Currently Redirected to "+data);
+ //this.toastr.success("You are Currently Redirected to "+data);
  this.router.navigate(['/Library', data]);
 }
 

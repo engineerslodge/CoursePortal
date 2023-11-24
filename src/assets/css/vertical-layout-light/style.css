@@ -28441,13 +28441,24 @@ div.tagsinput span.tag a {
   flex-direction: column;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
+  .main-panel {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1200px){
   .main-panel {
     margin-left: 0;
     width: 100%;
   }
 }
 
+@media only screen and (min-width: 768px) { 
+  .main-panel {
+  margin-left: 0;
+  width: 100vw;
+}}
 .content-wrapper {
   background: #F5F7FF;
   padding: 2.375rem 2.375rem;

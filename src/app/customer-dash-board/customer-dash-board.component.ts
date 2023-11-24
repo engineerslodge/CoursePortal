@@ -18,6 +18,7 @@ currentDateTime: string = '';
 allCategory : any =[];
 selectedOption : any=[];
 isSidebarOpen: boolean = false;
+SidBarDisplay:boolean=true
 
 constructor(private apiservice :ApiDataService,private ngZone: NgZone, private router : Router,private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef){}
 
@@ -214,8 +215,9 @@ Tolerance(){
 
 
 
-onToggleSidebar(): void {  
-  this.apiservice.toggleSidebar();
+onToggleSidebar(): void { 
+ this. SidBarDisplay =!this.SidBarDisplay;
+ this.apiservice.toggleSidebar();
 }
 
 

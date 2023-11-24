@@ -40,7 +40,7 @@ constructor(private route : ActivatedRoute, private apiservice:ApiDataService, p
   }
   
   check(data:any){
-    this.toastr.success("You are Currently been Redirected to Course Information Portal");
+    //this.toastr.success("You are Currently been Redirected to Course Information Portal");
     this.router.navigate(['/CourseInfo', data]);
   }
 

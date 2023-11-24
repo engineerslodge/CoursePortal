@@ -5,42 +5,42 @@
           </div>
         </div>    
     </section>
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav  class="sidebar sidebar-offcanvas" id="AppSidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/dashboard">
+            <a class="nav-link" href="#" href="/dashboard">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>          
           <li class="nav-item">
-            <a class="nav-link" routerLink="/market">
+            <a class="nav-link" href="/market">
               <i class="fa  fa-window-restore
               menu-icon"></i>
               <span class="menu-title">Course Library</span>
             </a>            
           </li>     
           <li class="nav-item" *ngFor="let itm of allCategory" style="cursor: pointer;">
-            <a class="nav-link" (click)="Redirect(itm.CourseCategory)">
+            <a class="nav-link" href="/Library/{{itm.CourseCategory}}">
               <i class="fa  fa-window-restore
               menu-icon"></i>
               <span class="menu-title">{{itm.CourseCategory}}</span>
             </a>            
           </li>                    
           <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/classHistory">
+            <a class="nav-link" href="#" href="/classHistory">
               <i class="fa fa-history menu-icon"></i>
               <span class="menu-title">Class History</span>
             </a>
           </li>
           <!-- <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/notes">
+            <a class="nav-link" href="#" href="/notes">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">Notes</span>
             </a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/pricing">
+            <a class="nav-link" href="#" href="/pricing">
               <i class="fa fa-credit-card"></i>
               <span class="menu-title"> &nbsp;&nbsp;&nbsp; Pricing</span>
             </a>
